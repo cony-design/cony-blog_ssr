@@ -44,6 +44,6 @@ export default {
 
   // router
   router: {
-    base: '/cony-blog_ssr/'
+    base: '/dist/'
   },
 }
