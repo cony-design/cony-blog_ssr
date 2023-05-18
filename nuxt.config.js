@@ -40,10 +40,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 
   // router
   router: {
-    base: '/dist/'
+    base: '/cony-blog_ssr/'
+  },
+
+  generate: {
+    dir: 'docs'
   },
 }
