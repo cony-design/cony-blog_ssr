@@ -39,6 +39,12 @@ export default {
     "@nuxtjs/axios",
   ],
 
+  basic: {
+    name: 'admin',
+    pass: 'admin',
+    enabled: true
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
