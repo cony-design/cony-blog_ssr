@@ -1,0 +1,24 @@
+$tab: 768px;
+$lap: 1024px;
+$pc: 1200px;
+
+@mixin tab {
+ // 768px以上の時に適応
+ @media screen and (min-width: ($tab)) {
+   @content;
+ }
+}
+
+@mixin lap {
+ // 1024px以上の時に適応
+ @media screen and (min-width: ($lap)) {
+   @content;
+ }
+}
+
+@mixin pc {
+ // 1200px以上の時に適応
+ @media screen and (min-width: ($pc)) {
+   @content;
+ }
+}

@@ -16,8 +16,19 @@
     "nuxt-basic-auth-module": "^1.4.1"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/vercel-builder": "^0.24.0"
+    "@nuxtjs/fontawesome": "^1.1.2",
+    "@nuxtjs/google-fonts": "^3.0.1",
+    "@nuxtjs/storybook": "^4.3.2",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@nuxtjs/vercel-builder": "^0.24.0",
+    "postcss": "^8.4.24",
+    "sass": "^1.62.1",
+    "sass-loader": "10",
+    "ts-node": "^10.9.1"
   }
 }

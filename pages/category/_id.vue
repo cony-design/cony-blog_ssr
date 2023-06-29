@@ -16,17 +16,18 @@
 export default {
   layout: "topics",
 
-  async asyncData({ $axios }) {
-    const posts = await $axios.$get('https://blog.cony-design.com/wp-json/wp/v2/posts')
-    return { posts }
-  }
+  async asyncData(context) {
+      const posts = await context.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/posts?_embed&categories=${context.params.id}`)
+      return { posts }
+    }
 };
 </script>
+
 
 <style lang="scss" scoped>
 .topics {
   list-style-type: none;
-  padding: 0;
+  padding: 32px;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;

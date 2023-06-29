@@ -1,11 +1,11 @@
 <template>
   <div>
-    <ul class="topics">
-      <li class="topics__article" v-for="post in posts" :key="post.id">
+    <ul class="rel">
+      <li class="rel__article" v-for="post in posts" :key="post.id">
         <NuxtLink :to="'/archives/' + post.id + '/'">
-          <p class="topics__article__date"> {{ post.date }}</p>
-          <h2 class="topics__article__ttl">{{ post.title.rendered }}</h2>
-          <p class="topics__article__desc">{{ post.excerpt.rendered }}</p>
+          <p class="rel__article__date"> {{ post.date }}</p>
+          <h2 class="rel__article__ttl">{{ post.title.rendered }}</h2>
+          <p class="rel__article__desc">{{ post.excerpt.rendered }}</p>
         </NuxtLink>
       </li>
     </ul>
@@ -14,27 +14,29 @@
 
 <script>
 export default {
-  layout: "topics",
-
-  async asyncData({ $axios }) {
-    const posts = await $axios.$get('https://blog.cony-design.com/wp-json/wp/v2/posts')
-    return { posts }
+  data() {
+    return {
+      posts: []
+    }
+  },
+  props: {
+    parentData: Object
+  },
+  async fetch() {
+    const posts = await this.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/posts?_embed&categories=${this.parentData}`)
+    this.posts = posts
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-.topics {
+.rel {
   list-style-type: none;
-  padding: 0;
+  padding: 32px 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
-
-  @include pc {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 
   &__article {
     display: flex;
