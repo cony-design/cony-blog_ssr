@@ -20,7 +20,7 @@ export default {
     }
   },
   props: {
-    parentData: Object
+    parentData: Array
   },
   async fetch() {
     const posts = await this.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/posts?_embed&categories=${this.parentData}`)

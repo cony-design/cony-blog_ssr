@@ -2,10 +2,9 @@
   <div>
     <div class="article">
       <h2 class="article__ttl">{{ post.title.rendered }}</h2>
-      <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="article__body" v-html="post.content.rendered"></div>
 
-      <NuxtLink :to="'/'"  class="button"><fa-icon icon="download"/>トップページへ</NuxtLink>
+      <NuxtLink :to="'/'"  class="button">トップページへ</NuxtLink>
 
       <rel-list :parentData="post.categories" />
     </div>
