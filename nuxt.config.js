@@ -59,9 +59,6 @@ export default {
     name: 'admin',
     pass: 'admin',
     enabled: true,
-    name: process.env.NAME || 'admin',
-    pass: process.env.PASSWORD || 'admin',
-    enabled: process.env.BASIC_ENABLED === 'true'
   },
 
   // router
