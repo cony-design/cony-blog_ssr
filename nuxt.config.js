@@ -1,5 +1,3 @@
-import * as FontAwesome from './build/fontawesome'
-
 export default {
   ssr: true, //universal or spa
 
@@ -45,7 +43,6 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/google-fonts',
-    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -92,15 +89,6 @@ export default {
       // centered:中央表示, padded:コンポーネントに余白付与, fullscreen:幅いっぱい
       layout: 'centered', 
     },
-  },
-
-  // fontawesome
-  fontawesome: {
-    icons: {
-      solid: FontAwesome.solid,
-      regular: FontAwesome.regular,
-      brands: FontAwesome.brands
-    }
   },
 
   googleFonts: {
