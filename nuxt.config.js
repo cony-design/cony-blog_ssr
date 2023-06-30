@@ -1,7 +1,7 @@
 import * as FontAwesome from './build/fontawesome'
 
 export default {
-  ssr: false, //universal or spa
+  mode: 'spa', //universal or spa
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
