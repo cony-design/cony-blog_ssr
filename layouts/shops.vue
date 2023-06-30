@@ -1,11 +1,7 @@
 <template>
   <div>
     <nav-bar />
-    <div class="l-body--2column">
-      <aside class="l-body__aside">
-        <cat-bar />
-        <shop-list />
-      </aside>
+    <div class="l-body">
       <main class="l-body__main">
         <nuxt />
       </main>
@@ -30,6 +26,7 @@ export default {
 
 <style lang="scss" scoped>
 .l-body {
+  padding: 32px 24px;
 
   &__aside {
     grid-area: nav;
@@ -37,16 +34,6 @@ export default {
 
   &__main {
     grid-area: main;
-  }
-
-  &--2column {
-    display: grid;
-    grid-template-areas: 
-      'main nav'
-    ;
-    grid-template-columns: 1fr 240px;
-    gap: 32px;
-    padding: 32px 24px;
   }
 }
 </style>

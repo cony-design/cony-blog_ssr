@@ -2,10 +2,8 @@
   <div>
     <ul class="topics">
       <li class="topics__article" v-for="post in posts" :key="post.id">
-        <NuxtLink :to="'/archives/' + post.id + '/'">
-          <p class="topics__article__date"> {{ post.date }}</p>
+        <NuxtLink :to="'/shops/' + post.id + '/'">
           <h2 class="topics__article__ttl">{{ post.title.rendered }}</h2>
-          <div class="topics__article__desc" v-html="post.excerpt.rendered"></div>
         </NuxtLink>
       </li>
     </ul>
@@ -14,9 +12,9 @@
 
 <script>
 export default {
-  layout: "topics",
+  layout: "shops",
   async asyncData({ $axios }) {
-    const posts = await $axios.$get('https://blog.cony-design.com/wp-json/wp/v2/posts')
+    const posts = await $axios.$get('https://blog.cony-design.com/wp-json/wp/v2/shops')
     return { posts }
   }
 };

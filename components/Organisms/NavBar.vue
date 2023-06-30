@@ -5,7 +5,7 @@
     </h1>
     <nav class="navMenu">
       <nuxt-link to="/">Home</nuxt-link>
-      <nuxt-link to="/archives">Archives</nuxt-link>
+      <nuxt-link to="/shops">Shops</nuxt-link>
     </nav>
   </div>
 </template>

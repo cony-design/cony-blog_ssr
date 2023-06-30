@@ -5,7 +5,7 @@
         <NuxtLink :to="'/archives/' + post.id + '/'">
           <p class="topics__article__date"> {{ post.date }}</p>
           <h2 class="topics__article__ttl">{{ post.title.rendered }}</h2>
-          <p class="topics__article__desc">{{ post.excerpt.rendered }}</p>
+          <div class="topics__article__desc" v-html="post.excerpt.rendered"></div>
         </NuxtLink>
       </li>
     </ul>
@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .topics {
   list-style-type: none;
-  padding: 32px;
+  padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;

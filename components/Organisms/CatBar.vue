@@ -46,6 +46,7 @@ export default {
     }
 
     a {
+      font-size: .9rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
