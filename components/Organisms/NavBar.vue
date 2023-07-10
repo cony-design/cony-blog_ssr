@@ -6,6 +6,7 @@
     <nav class="navMenu">
       <nuxt-link to="/">Home</nuxt-link>
       <nuxt-link to="/shops">Shops</nuxt-link>
+      <nuxt-link to="/contact">Contact</nuxt-link>
     </nav>
   </div>
 </template>

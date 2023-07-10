@@ -60,7 +60,14 @@ export default {
 
   // router
   router: {
-    base: '/'
+    base: '/',
+    routes: [
+      {
+        name: 'confirmation',
+        path: '/confirmation',
+        component: '@/pages/contact/Confirmation.vue'
+      }
+    ]
   },
 
   generate: {
