@@ -33,7 +33,15 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // 下記追加
+    '~/plugins/vee-validate'
   ],
+
+  build: {
+    transpile: [
+      "vee-validate/dist/rules"
+    ]
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
