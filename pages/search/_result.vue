@@ -1,14 +1,18 @@
 <template>
   <div>
-    <ul class="topics">
-      <li class="topics__article" v-for="post in posts" :key="post.id">
+    <!-- 検索結果の表示 -->
+    <div class="topics" v-if="searchResults.length">
+      <div class="topics__article" v-for="post in searchResults" :key="post.id">
         <NuxtLink :to="'/archives/' + post.id + '/'">
           <p class="topics__article__date"> {{ post.date }}</p>
           <h2 class="topics__article__ttl">{{ post.title.rendered }}</h2>
           <div class="topics__article__desc" v-html="post.excerpt.rendered"></div>
         </NuxtLink>
-      </li>
-    </ul>
+      </div>
+    </div>
+    <div v-else>
+      検索結果が見つかりません。
+    </div>
   </div>
 </template>
 
@@ -26,13 +30,23 @@ export default {
   mounted() {
     this.$store.commit('setPageTitle', 'SEARCH');
   },
-  async asyncData(context) {
-      const posts = await context.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/posts?_embed&categories=${context.params.id}`)
-      return { posts }
-    }
-};
-</script>
+  async asyncData({ $axios, query }) {
+    console.log("クエリパラメータ:", query.q); // デバッグ用のログ
 
+    let searchResults = [];
+    if (query.q) {
+      try {
+        const encodedQuery = encodeURIComponent(query.q);
+        const response = await $axios.get(`https://blog.cony-design.com/wp-json/wp/v2/posts?search=${encodedQuery}`);
+        searchResults = response.data;
+      } catch (error) {
+        console.error('検索エラー:', error);
+      }
+    }
+    return { searchResults };
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .topics {

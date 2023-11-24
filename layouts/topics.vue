@@ -7,6 +7,7 @@
         <shop-list />
       </aside>
       <main class="l-body__main">
+        <page-title :title="pageTitle" />
         <nuxt />
       </main>
     </div>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import PageTitle from '@/components/Atom/ContentTitle.vue';
 import NavBar from '@/components/Organisms/NavBar.vue';
 import CatBar from '@/components/Organisms/CatBar.vue';
 import ShopList from '@/components/Organisms/ShopList.vue';
@@ -23,7 +25,18 @@ export default {
     NavBar,
     CatBar,
     ShopList,
+    PageTitle,
   },
+  computed: {
+    pageTitle() {
+      return this.$store.state.pageTitle;
+    }
+  },
+  // computed: {
+  //   pageTitle() {
+  //     return this.$route.meta.title || 'デフォルトタイトル';
+  //   }
+  // }
 }
 </script>
 

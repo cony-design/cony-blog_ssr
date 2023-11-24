@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  layout: "topics",
   data() {
     return {
       contact: {

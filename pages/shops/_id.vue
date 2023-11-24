@@ -12,40 +12,51 @@
         <li>{{ post.acf.shop_tel }}</li>
       </ul>
       <div class="article__body" v-html="post.content.rendered"></div>
-      <NuxtLink :to="'/shops/'"  class="button">SHOPS TOPへ</NuxtLink>
+      <NuxtLink :to="'/shops/'" class="button">SHOPS TOPへ</NuxtLink>
     </div>
   </div>
 </template>
 
 <script>
 
-	export default {
-    layout: "original",
-    components: {
+export default {
+  layout: "original",
+  components: {
+  },
+  props: {
+    url: String,
+    count: {
+      type: String,
+      default: "4",
     },
-    props: {
-      url: String,
-      count: {
-        type:String,
-        default:"4",
-      },
-      noImage: {
-        type:String,
-        default:"/assets/img/common/no_image.png",
-      },
+    noImage: {
+      type: String,
+      default: "/assets/img/common/no_image.png",
     },
-    async asyncData(context) {
-      const post = await context.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/shops/${context.params.id}/?acf_format=standard`)
-      return { post }
-    }
-	};
+  },
+  head() {
+    return {
+      title: 'SHOPS',
+      meta: [
+        { hid: 'description', name: 'description', content: 'ページの説明' }
+      ]
+    };
+  },
+  mounted() {
+    this.$store.commit('setPageTitle', 'SHOPS');
+  },
+  async asyncData(context) {
+    const post = await context.$axios.$get(`https://blog.cony-design.com/wp-json/wp/v2/shops/${context.params.id}/?acf_format=standard`)
+    return { post }
+  }
+};
 </script>
 
 
 <style lang="scss" scoped>
 .article {
   max-width: 848px;
-  padding-block-start: 100px;
+  padding-block: 100px;
   padding-inline: 24px;
   margin-inline: auto;
 
@@ -66,7 +77,7 @@
     border-bottom: 1px solid var(--gray-50);
     list-style-type: none;
 
-    > * {
+    >* {
       margin: 0 0 1em;
       padding: 0;
 
@@ -79,17 +90,17 @@
   &__body {
     padding-bottom: 60px;
   }
+}
 
-  .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--gray-50);
-    padding: 12px;
-    margin: 0;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-  }
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-50);
+  padding: 12px;
+  margin: 0;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
 }
 </style>

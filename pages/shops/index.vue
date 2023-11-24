@@ -12,7 +12,18 @@
 
 <script>
 export default {
-  layout: "shops",
+  layout: "topics",
+  head() {
+    return {
+      title: 'SHOPS',
+      meta: [
+        { hid: 'description', name: 'description', content: 'ページの説明' }
+      ]
+    };
+  },
+  mounted() {
+    this.$store.commit('setPageTitle', 'SHOPS');
+  },
   async asyncData({ $axios }) {
     const posts = await $axios.$get('https://blog.cony-design.com/wp-json/wp/v2/shops')
     return { posts }
